@@ -5,6 +5,11 @@ import android.graphics.Paint;
 import br.com.insanegames.insanevectroid.GameObject;
 import br.com.insanegames.insanevectroid.Line;
 
+/**
+ * Representa a tela. Tem a capacidade desenhar GameObjects na tela (convertendo as posicoes corretas, independente da resolucao da tela do celular).
+ * @author Marcio Frayze David
+ *
+ */
 public class GameScreen {
 
 	private int realWidth;

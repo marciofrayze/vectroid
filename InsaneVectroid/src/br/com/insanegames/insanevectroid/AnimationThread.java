@@ -2,6 +2,10 @@ package br.com.insanegames.insanevectroid;
 
 import android.view.View;
 
+/**
+ * Responsavel por fazer o looping principal/infinito do jogo, delegando para o GameController a responsabilidade de atualizar os objetos do jogo.
+ * @author Marcio Frayze David
+ */
 public class AnimationThread extends Thread {
 	
 	private GameController gameController;
@@ -18,6 +22,9 @@ public class AnimationThread extends Thread {
 		}
 	}
 	
+	/**
+	 * Certifica que o jogo nao vai rodar rapido demais (framerate constante).
+	 */
 	private void waitFrameRate() {
     	try {
 			long endTime = System.currentTimeMillis();

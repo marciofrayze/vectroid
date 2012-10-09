@@ -7,15 +7,29 @@ import android.util.DisplayMetrics;
 import android.app.Activity;
 import android.graphics.Color;
 
+/**
+ * Classe principal/inicial. Apenas cria a estrutura basica necessaria para execucao do jogo. 
+ * Esta classe nao deve ter nenhuma responsabilidade a nao ser prover a estrutura basica.
+ * @author Marcio Frayze David
+ *
+ */
 public class MainActivity extends Activity {
     
+	/** View onde iremos desenhar os objetos do jogo */
 	private DrawView drawView;
+	/** Thread responsavel pelo looping principal do jogo, controle de framerate, etc. */
 	private AnimationThread thread;
 	
-    @Override
+    
+    /**
+     * Metodo inicial chamado autmagicamente. Aqui instanciamos a estrutura basica necessaria para execucao do jogo.
+     * @TODO: retirar toda e qualquer logica desnecessaria deste metodo. Deve fazer o minimo necessario.
+     */
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        // Criando a view onde vamos desenhar os objetos
         drawView = new DrawView(this);
         drawView.setBackgroundColor(Color.WHITE);       
         
@@ -23,6 +37,7 @@ public class MainActivity extends Activity {
         DisplayMetrics metrics = this.getResources().getDisplayMetrics();
         gameController.setGameScreen(new GameScreen(metrics.widthPixels, metrics.heightPixels));
         
+        // Criando uns objetos quaisquer apenas para testes
         Random rnd = new Random(); 
         for (int i=0; i<5; i++) {
         	int posXInicial = (int) (1 + (Math.random() * 420));
@@ -34,10 +49,16 @@ public class MainActivity extends Activity {
         	gameController.addGameObject(new RectSinGameObject(posXInicial, -posYInicial, width, height, vel, color));
         }
         	
+        // A DrawView precisa ter acesso ao gameController pois infelizmente eh um metodo dela que eh acionado automaticamente pelo android
+        // e eh este metodo que tem acesso ao canvas onde vamos desenhar. A DrawView ira delegar a responsabilidade da logica do jogo ao GameController.
+        // @TODO: Tentar rever isso para tentar tirar da DrawView a dependencia com GameController. Nao faz muito sentido a view depender do controller...
         drawView.setGameController(gameController);
 
+        // Thread responsavel pelo looping principal. Apenas delega ao gameController as responsabilidades.
         thread = new AnimationThread();        
         thread.setGameController(gameController);
+        // Por enquanto a thread depende da view pois ela eh quem chama o metodo postInvalidate, que forca a re-renderizacao da view.
+        // TODO: Rever essa dependencia. Talvez fosse melhor o controller chamar o postInvalidate da view e nao a thread. Pensar sobre isso!
         thread.setView(drawView);
         thread.start();
         
