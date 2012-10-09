@@ -3,6 +3,7 @@ package br.com.insanegames.insanevectroid;
 import java.util.ArrayList;
 
 import br.com.insanegames.insanevectroid.util.GameScreen;
+import br.com.insanegames.insanevectroid.util.ScreenSize;
 import android.graphics.Canvas;
 
 /**
@@ -57,9 +58,27 @@ public class GameController {
 	public void setGameScreen(GameScreen gameScreen) {
 		this.gameScreen = gameScreen;		
 	}
-
+	
 	public ArrayList<GameObject> getGameObjects() {
 		return this.gameObjects;
+	}
+
+	public void movePlayerLeft() {	
+		// TODO otimizar este codigo!
+		for (GameObject gameObject : gameObjects) {
+			if (gameObject.type().equals("player")) {
+				gameObject.move(-6f, 0f);
+			}
+		}	
+	}
+	
+	public void movePlayerRight() {		
+		// TODO otimizar este codigo!
+		for (GameObject gameObject : gameObjects) {
+			if (gameObject.type().equals("player")) {
+				gameObject.move(6f, 0f);
+			}
+		}	
 	}
 
 }

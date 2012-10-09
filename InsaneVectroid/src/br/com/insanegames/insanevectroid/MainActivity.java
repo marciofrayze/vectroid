@@ -4,6 +4,7 @@ import java.util.Random;
 import br.com.insanegames.insanevectroid.util.GameScreen;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.MotionEvent;
 import android.app.Activity;
 import android.graphics.Color;
 
@@ -20,6 +21,8 @@ public class MainActivity extends Activity {
 	/** Thread responsavel pelo looping principal do jogo, controle de framerate, etc. */
 	private AnimationThread thread;
 	
+	private InputController inputController;
+	
     
     /**
      * Metodo inicial chamado autmagicamente. Aqui instanciamos a estrutura basica necessaria para execucao do jogo.
@@ -35,19 +38,25 @@ public class MainActivity extends Activity {
         
         GameController gameController = new GameController();
         DisplayMetrics metrics = this.getResources().getDisplayMetrics();
-        gameController.setGameScreen(new GameScreen(metrics.widthPixels, metrics.heightPixels));
+        GameScreen gameScreen = new GameScreen(metrics.widthPixels, metrics.heightPixels);
+        gameController.setGameScreen(gameScreen);
         
         // Criando uns objetos quaisquer apenas para testes
         Random rnd = new Random(); 
         for (int i=0; i<5; i++) {
         	int posXInicial = (int) (1 + (Math.random() * 420));
-        	int width = (int) (1 + (Math.random() * 640)/40);
-        	int height = (int) (1 + (Math.random() * 640)/40);
+        	//int width = (int) (1 + (Math.random() * 640)/40);
+        	//int height = (int) (1 + (Math.random() * 640)/40);
+        	int width = 50;
+        	int height = 50;
         	int posYInicial = (int) (1 + (Math.random() * 300));
         	float vel = (float)Math.random();        	
         	int color = Color.argb(255,rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         	gameController.addGameObject(new RectSinGameObject(posXInicial, -posYInicial, width, height, vel, color));
         }
+        
+        PlayerGameObject playerGameObject = new PlayerGameObject(1024/2, 700, 50, 50, 0.3f, Color.BLUE);
+        gameController.addGameObject(playerGameObject);
         	
         // A DrawView precisa ter acesso ao gameController pois infelizmente eh um metodo dela que eh acionado automaticamente pelo android
         // e eh este metodo que tem acesso ao canvas onde vamos desenhar. A DrawView ira delegar a responsabilidade da logica do jogo ao GameController.
@@ -63,5 +72,14 @@ public class MainActivity extends Activity {
         thread.start();
         
         setContentView(drawView);
+        
+        inputController = new InputController(gameController, gameScreen.getScreenSize());
     }
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent motionEvent) {
+		System.out.println("Clique: (" + motionEvent.getX() + ", " + motionEvent.getY() + ")");
+		inputController.onMotionEvent(motionEvent);		
+		return true;
+	}
 }

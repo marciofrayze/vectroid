@@ -12,30 +12,22 @@ import br.com.insanegames.insanevectroid.Line;
  */
 public class GameScreen {
 
-	private int realWidth;
-	private int realHeight;
+	private ScreenSize screenSize;
 	private Paint paint;
+	private static int FICTIONAL_SCREEN_WIDTH = 1024;
+	private static int FICTIONAL_SCREEN_HEIGHT = 768;
 
 	public GameScreen(int width, int height) {
-		this.realWidth = width;
-		this.realHeight = height;
+		this.screenSize = new ScreenSize(width, height);
 		this.paint = new Paint();
 	}
 
-	public int getRealWidth() {
-		return realWidth;
+	public ScreenSize getScreenSize() {
+		return screenSize;
 	}
 
-	public void setRealWidth(int width) {
-		this.realWidth = width;
-	}
-
-	public int getRealHeight() {
-		return realHeight;
-	}
-
-	public void setRealHeight(int height) {
-		this.realHeight = height;
+	public void setScreenSize(ScreenSize screenSize) {
+		this.screenSize = screenSize;
 	}
 
 	public void drawGameObject(GameObject gameObject, Canvas canvas) {
@@ -48,11 +40,11 @@ public class GameScreen {
 	// Para o programador, a tela eh como se tivesse uma resolucao 1024x768. Aqui convertemos esses valores para valores proporcionais 
 	// dependendo do tamanho da tela
 	public int xReal(float xRelativo) {
-		return (int) (xRelativo * realWidth) / 1024;
+		return (int) (xRelativo * screenSize.getRealWidth()) / FICTIONAL_SCREEN_WIDTH;
 	}
 	
 	public int yReal(float yRelativo) {
-		return (int) (yRelativo * realHeight) / 768;
+		return (int) (yRelativo * screenSize.getRealHeight()) / FICTIONAL_SCREEN_HEIGHT;
 	}	
 	
 }

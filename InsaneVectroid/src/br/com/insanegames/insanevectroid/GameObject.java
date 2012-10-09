@@ -41,5 +41,14 @@ public abstract class GameObject {
 	}
 	
 	public abstract void think();
+	
+	// voce pode usar este metodo para diferenciar uma colecao de objetos
+	// TODO: mudar para um enum?
+	public String type() {
+		return "nobody";
+	}
+	public void move(float x, float y) {
+		this.setPosition(new Position(this.getPosition().getX() + x, this.getPosition().getY() + y));		
+	}
 
 }
