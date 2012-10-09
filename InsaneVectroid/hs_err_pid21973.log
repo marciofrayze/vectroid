@@ -1,0 +1,470 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (classFileParser.cpp:3494), pid=21973, tid=3063860080
+#  Error: ShouldNotReachHere()
+#
+# JRE version: 6.0_27-b07
+# Java VM: Java HotSpot(TM) Server VM (20.2-b06 mixed mode linux-x86 )
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x082ed400):  JavaThread "Unknown thread" [_thread_in_vm, id=21977, stack(0xb699c000,0xb69ed000)]
+
+Stack: [0xb699c000,0xb69ed000],  sp=0xb69eb7d0,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x7243a0]  VMError::report_and_die()+0x2b0
+V  [libjvm.so+0x2f696f]  report_should_not_reach_here(char const*, int)+0x3f
+V  [libjvm.so+0x28ceda]  ClassFileParser::parseClassFile(symbolHandle, Handle, Handle, KlassHandle, GrowableArray<Handle>*, symbolHandle&, bool, Thread*)+0x2d9a
+V  [libjvm.so+0x292f21]  ClassLoader::load_classfile(symbolHandle, Thread*)+0x221
+V  [libjvm.so+0x6b39a2]  SystemDictionary::load_instance_class(symbolHandle, Handle, Thread*)+0xf2
+V  [libjvm.so+0x6b1a3e]  SystemDictionary::resolve_instance_class_or_null(symbolHandle, Handle, Handle, Thread*)+0x55e
+V  [libjvm.so+0x6b0806]  SystemDictionary::resolve_or_null(symbolHandle, Handle, Handle, Thread*)+0x66
+V  [libjvm.so+0x6b0470]  SystemDictionary::resolve_or_fail(symbolHandle, Handle, Handle, bool, Thread*)+0x30
+V  [libjvm.so+0x6b528a]  SystemDictionary::initialize_wk_klass(SystemDictionary::WKID, int, Thread*)+0x6a
+V  [libjvm.so+0x6b531c]  SystemDictionary::initialize_wk_klasses_until(SystemDictionary::WKID, SystemDictionary::WKID&, Thread*)+0x4c
+V  [libjvm.so+0x6b53e0]  SystemDictionary::initialize_preloaded_classes(Thread*)+0x70
+V  [libjvm.so+0x6b51b1]  SystemDictionary::initialize(Thread*)+0xe1
+V  [libjvm.so+0x6fbf9a]  Universe::genesis(Thread*)+0x4da
+V  [libjvm.so+0x6fd65f]  universe2_init()+0x1f
+V  [libjvm.so+0x3b8d68]  init_globals()+0x98
+V  [libjvm.so+0x6e4ff2]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x242
+V  [libjvm.so+0x413976]  JNI_CreateJavaVM+0x56
+C  [java+0x305c]
+C  [java+0x1942]  JavaMain+0x72
+C  [libpthread.so.0+0x596e]  short+0xbe
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x082ed400 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=21977, stack(0xb699c000,0xb69ed000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Dynamic libraries:
+08048000-08052000 r-xp 00000000 08:06 6556962    /home/30723401888/Applications/jdk1.6.0_27/bin/java
+08052000-08053000 rwxp 00009000 08:06 6556962    /home/30723401888/Applications/jdk1.6.0_27/bin/java
+082e8000-08370000 rwxp 00000000 00:00 0          [heap]
+6ee3e000-6ef00000 r-xs 010b9000 08:06 5138090    /home/30723401888/Desktop/lixo/android-sdk-linux/platforms/android-16/android.jar
+6ef00000-6ef21000 rwxp 00000000 00:00 0 
+6ef21000-6f000000 ---p 00000000 00:00 0 
+6f091000-6f092000 ---p 00000000 00:00 0 
+6f092000-6f112000 rwxp 00000000 00:00 0 
+6f112000-6f113000 ---p 00000000 00:00 0 
+6f113000-6f193000 rwxp 00000000 00:00 0 
+6f193000-6f194000 ---p 00000000 00:00 0 
+6f194000-6f214000 rwxp 00000000 00:00 0 
+6f214000-6f215000 ---p 00000000 00:00 0 
+6f215000-6f295000 rwxp 00000000 00:00 0 
+6f295000-6f296000 ---p 00000000 00:00 0 
+6f296000-6f316000 rwxp 00000000 00:00 0 
+6f316000-6f317000 ---p 00000000 00:00 0 
+6f317000-6f397000 rwxp 00000000 00:00 0 
+6f397000-6f398000 ---p 00000000 00:00 0 
+6f398000-6f418000 rwxp 00000000 00:00 0 
+6f418000-6f419000 ---p 00000000 00:00 0 
+6f419000-6f4a1000 rwxp 00000000 00:00 0 
+6f4a1000-6f4b9000 rwxp 00000000 00:00 0 
+6f4b9000-6f4cf000 rwxp 00000000 00:00 0 
+6f4cf000-6f60f000 rwxp 00000000 00:00 0 
+6f60f000-6f617000 rwxp 00000000 00:00 0 
+6f617000-6f62f000 rwxp 00000000 00:00 0 
+6f62f000-6f645000 rwxp 00000000 00:00 0 
+6f645000-6f784000 rwxp 00000000 00:00 0 
+6f784000-6f78f000 rwxp 00000000 00:00 0 
+6f78f000-6f82f000 rwxp 00000000 00:00 0 
+6f82f000-70830000 rwxp 00000000 00:00 0 
+70830000-73830000 rwxp 00000000 00:00 0 
+73830000-762e0000 rwxp 00000000 00:00 0 
+762e0000-9e2e0000 rwxp 00000000 00:00 0 
+9e2e0000-9f830000 rwxp 00000000 00:00 0 
+9f830000-b3830000 rwxp 00000000 00:00 0 
+b383d000-b3846000 rwxp 00000000 00:00 0 
+b3846000-b38fd000 rwxp 00000000 00:00 0 
+b38fd000-b3b3d000 rwxp 00000000 00:00 0 
+b3b3d000-b68fd000 rwxp 00000000 00:00 0 
+b68fd000-b690c000 r-xp 00000000 08:06 4985550    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/libzip.so
+b690c000-b690e000 rwxp 0000e000 08:06 4985550    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/libzip.so
+b690e000-b6943000 r-xs 00000000 08:05 1313493    /var/cache/nscd/passwd
+b6943000-b6956000 r-xp 00000000 08:05 1057469    /lib/tls/i686/cmov/libnsl-2.11.1.so
+b6956000-b6957000 r-xp 00012000 08:05 1057469    /lib/tls/i686/cmov/libnsl-2.11.1.so
+b6957000-b6958000 rwxp 00013000 08:05 1057469    /lib/tls/i686/cmov/libnsl-2.11.1.so
+b6958000-b695a000 rwxp 00000000 00:00 0 
+b6966000-b696e000 rwxs 00000000 08:05 529272     /tmp/hsperfdata_30723401888/21973
+b696e000-b6991000 r-xp 00000000 08:06 4985546    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/libjava.so
+b6991000-b6993000 rwxp 00023000 08:06 4985546    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/libjava.so
+b6993000-b699a000 r-xp 00000000 08:05 1054125    /lib/tls/i686/cmov/librt-2.11.1.so
+b699a000-b699b000 r-xp 00006000 08:05 1054125    /lib/tls/i686/cmov/librt-2.11.1.so
+b699b000-b699c000 rwxp 00007000 08:05 1054125    /lib/tls/i686/cmov/librt-2.11.1.so
+b699c000-b699f000 ---p 00000000 00:00 0 
+b699f000-b69ed000 rwxp 00000000 00:00 0 
+b69ed000-b6a11000 r-xp 00000000 08:05 1057463    /lib/tls/i686/cmov/libm-2.11.1.so
+b6a11000-b6a12000 r-xp 00023000 08:05 1057463    /lib/tls/i686/cmov/libm-2.11.1.so
+b6a12000-b6a13000 rwxp 00024000 08:05 1057463    /lib/tls/i686/cmov/libm-2.11.1.so
+b6a13000-b71c5000 r-xp 00000000 08:06 4985534    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/server/libjvm.so
+b71c5000-b7219000 rwxp 007b1000 08:06 4985534    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/server/libjvm.so
+b7219000-b7638000 rwxp 00000000 00:00 0 
+b7638000-b7791000 r-xp 00000000 08:05 1054124    /lib/tls/i686/cmov/libc-2.11.1.so
+b7791000-b7793000 r-xp 00159000 08:05 1054124    /lib/tls/i686/cmov/libc-2.11.1.so
+b7793000-b7794000 rwxp 0015b000 08:05 1054124    /lib/tls/i686/cmov/libc-2.11.1.so
+b7794000-b7797000 rwxp 00000000 00:00 0 
+b7797000-b7799000 r-xp 00000000 08:05 1057471    /lib/tls/i686/cmov/libdl-2.11.1.so
+b7799000-b779a000 r-xp 00001000 08:05 1057471    /lib/tls/i686/cmov/libdl-2.11.1.so
+b779a000-b779b000 rwxp 00002000 08:05 1057471    /lib/tls/i686/cmov/libdl-2.11.1.so
+b779b000-b77a2000 r-xp 00000000 08:06 4985548    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/jli/libjli.so
+b77a2000-b77a4000 rwxp 00006000 08:06 4985548    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/jli/libjli.so
+b77a4000-b77a5000 rwxp 00000000 00:00 0 
+b77a5000-b77ba000 r-xp 00000000 08:05 1057468    /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77ba000-b77bb000 r-xp 00014000 08:05 1057468    /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77bb000-b77bc000 rwxp 00015000 08:05 1057468    /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77bc000-b77be000 rwxp 00000000 00:00 0 
+b77c4000-b77c5000 rwxp 00000000 00:00 0 
+b77c5000-b77c6000 r-xp 00000000 00:00 0 
+b77c6000-b77d1000 r-xp 00000000 08:06 4985545    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/libverify.so
+b77d1000-b77d2000 rwxp 0000b000 08:06 4985545    /home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/libverify.so
+b77d2000-b77d4000 rwxp 00000000 00:00 0 
+b77d4000-b77d5000 r-xp 00000000 00:00 0          [vdso]
+b77d5000-b77f0000 r-xp 00000000 08:05 663897     /lib/ld-2.11.1.so
+b77f0000-b77f1000 r-xp 0001a000 08:05 663897     /lib/ld-2.11.1.so
+b77f1000-b77f2000 rwxp 0001b000 08:05 663897     /lib/ld-2.11.1.so
+bfe9c000-bfeb1000 rwxp 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Xbootclasspath:/home/30723401888/Desktop/lixo/android-sdk-linux/platforms/android-16/android.jar 
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 53576 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames br.com.insanegames.insanevectroid.unittest.testaConversaoTela
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/home/30723401888/Applications/jdk1.6.0_27/jre
+CLASSPATH=.:/home/30723401888/Applications/jdk1.6.0_27/lib
+PATH=/home/30723401888/Applications/maven-2.2.1/bin:/home/30723401888/Applications/jdk1.6.0_27/bin:/home/30723401888/Applications/jdk1.6.0_27/jre/bin:/home/30723401888/Applications/jdk1.6.0_27/bin:/home/30723401888/Applications/jdk1.6.0_27/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/30723401888/Desktop/Outros/Script
+USERNAME=30723401888
+LD_LIBRARY_PATH=/home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/server:/home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386:/home/30723401888/Applications/jdk1.6.0_27/jre/../lib/i386:/home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386/client:/home/30723401888/Applications/jdk1.6.0_27/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x725000], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x725000], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x5dfb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x5dfb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x5dfb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x5dfb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x5e2da0], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGINT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGQUIT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+
+
+---------------  S Y S T E M  ---------------
+
+OS:squeeze/sid
+
+uname:Linux 2.6.32-24-generic-pae #38-Ubuntu SMP Mon Jul 5 10:54:21 UTC 2010 i686
+libc:glibc 2.11.1 NPTL 2.11.1 
+rlimit: STACK 8192k, CORE 0k, NPROC infinity, NOFILE 1024, AS infinity
+load average:1.24 0.85 0.86
+
+/proc/meminfo:
+MemTotal:        8218008 kB
+MemFree:         4308732 kB
+Buffers:           82412 kB
+Cached:          1822496 kB
+SwapCached:         7764 kB
+Active:          2101008 kB
+Inactive:        1649108 kB
+Active(anon):    1216884 kB
+Inactive(anon):   647524 kB
+Active(file):     884124 kB
+Inactive(file):  1001584 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+HighTotal:       7432712 kB
+HighFree:        3770188 kB
+LowTotal:         785296 kB
+LowFree:          538544 kB
+SwapTotal:       7140852 kB
+SwapFree:        7090888 kB
+Dirty:               292 kB
+Writeback:             0 kB
+AnonPages:       1839616 kB
+Mapped:           164288 kB
+Shmem:             19532 kB
+Slab:              79256 kB
+SReclaimable:      57504 kB
+SUnreclaim:        21752 kB
+KernelStack:        6320 kB
+PageTables:        14480 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    11249856 kB
+Committed_AS:    3951816 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       75628 kB
+VmallocChunk:      30204 kB
+HardwareCorrupted:     0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       28664 kB
+DirectMap2M:      882688 kB
+
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 30 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 2934.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5852.08
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 1200.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5851.70
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 1200.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5851.69
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 1200.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5851.70
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 1200.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5851.67
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 1200.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5851.70
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 2934.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5851.70
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
+stepping	: 5
+cpu MHz		: 1200.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5851.69
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8218008k(4308732k free), swap 7140852k(7090888k free)
+
+vm_info: Java HotSpot(TM) Server VM (20.2-b06) for linux-x86 JRE (1.6.0_27-b07), built on Jul 19 2011 01:12:21 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Tue Oct  9 15:32:16 2012
+elapsed time: 0 seconds
+
