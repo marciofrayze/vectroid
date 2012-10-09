@@ -8,7 +8,7 @@ public class RectSinGameObject extends RectGameObject {
 			float speed, int color) {
 		super(x, y, width, height, speed, color);
 		sinAngle=(int) (Math.random() * 360);
-;
+
 	}
 
 	public void think() {
