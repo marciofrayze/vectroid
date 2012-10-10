@@ -2,30 +2,33 @@ package samplegame;
 
 import android.app.Activity;
 import br.com.insanegames.insanevectroid.controllers.GameController;
-import br.com.insanegames.insanevectroid.gameobjects.GameObject;
 
 public class VectroidGameController extends GameController {
 
+	private PlayerGameObject player;
+	
 	public VectroidGameController(Activity activity) {
 		super(activity);		
 	}
 
 	public void movePlayerLeft() {	
-		// TODO otimizar este codigo!
-		for (GameObject gameObject : gameObjects) {
-			if (gameObject.type().equals("player")) {
-				((PlayerGameObject) gameObject).moveLeft();
-			}
-		}	
+		player.moveLeft();
 	}
 	
 	public void movePlayerRight() {		
-		// TODO otimizar este codigo!
-		for (GameObject gameObject : gameObjects) {
-			if (gameObject.type().equals("player")) {
-				((PlayerGameObject) gameObject).moveRight();
-			}
-		}	
+		player.moveRight();	}
+	
+	public PlayerGameObject getPlayer() {
+		return player;
 	}
+
+	public void setPlayer(PlayerGameObject player) {
+		this.player = player;
+		// se jogador ainda nao tiver na lista de objetos, adicione ele
+		if (!this.gameObjects.contains(player)) {
+			gameObjects.add(player);
+		}		
+	}
+
 
 }

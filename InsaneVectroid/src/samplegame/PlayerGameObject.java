@@ -32,9 +32,18 @@ public class PlayerGameObject extends RectGameObject {
 		return "player";
 	}
 
+	/**
+	 * Indica que o jogador que mover para esquerda.
+	 * Nunca mova o objeto diretamente. Sete variaveis de controle e altera a posicao deles no think.
+	 * Com isso voce garante que vai rodar na mesma velocidade em todos os lugares.
+	 */
 	public void moveLeft() {
 		this.isMovingLeft = true;
 	}
+
+	/**
+	 * Indica que o jogador que mover para esquerda.
+	 */
 	public void moveRight() {
 		this.isMovingRight = true;		
 	}
