@@ -1,6 +1,7 @@
 package br.com.insanegames.insanevectroid.util;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import br.com.insanegames.insanevectroid.gameobjects.GameObject;
 
@@ -45,5 +46,17 @@ public class GameScreen {
 	public int yReal(float yRelativo) {
 		return (int) (yRelativo * screenSize.getRealHeight()) / FICTIONAL_SCREEN_HEIGHT;
 	}	
+	
+	public static int randomXPosition() {
+		return (int) (Math.random() * 1024);
+	}
+
+	public static int randomYPosition() {
+		return (int) (Math.random() * 768);
+	}
+	
+	public static int randomColor() {
+		return Color.argb(255, (int)Math.random() * 256, (int)Math.random() * 256, (int)Math.random() * 256);
+	}
 	
 }

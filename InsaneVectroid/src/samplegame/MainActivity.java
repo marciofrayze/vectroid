@@ -1,11 +1,9 @@
 package samplegame;
 
-import java.util.Random;
-
-
 import android.graphics.Color;
 import br.com.insanegames.insanevectroid.AbstractMainActivity;
 import br.com.insanegames.insanevectroid.gameobjects.GameObject;
+import br.com.insanegames.insanevectroid.util.GameScreen;
 
 public class MainActivity extends AbstractMainActivity {
 	
@@ -22,21 +20,16 @@ public class MainActivity extends AbstractMainActivity {
 	    inputController = new VectroidInputController(gameController, gameScreen.getScreenSize());
 	}
 	
-	private GameObject[] criaArrayObjetosAleatoriosParaTestes() {
+	private GameObject[] criaArrayObjetosAleatoriosParaTestes() {		
 		
-		GameObject[] gameObjects = new GameObject[5];
 	    // Criando uns objetos quaisquer apenas para testes
-	    Random rnd = new Random(); 
+		GameObject[] gameObjects = new GameObject[5];
 	    for (int i=0; i<5; i++) {
-	    	int posXInicial = (int) (1 + (Math.random() * 1024));
-	    	int posYInicial = (int) (1 + (Math.random() * 768));
 	    	float vel = (float)Math.random();        	
-	    	int color = Color.argb(255,rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-	    	gameObjects[i] = new RectSinGameObject(posXInicial, -posYInicial, 50, 50 , vel, color); 
+	    	gameObjects[i] = new RectSinGameObject(GameScreen.randomXPosition(), -GameScreen.randomYPosition(), 50, 50 , vel, GameScreen.randomColor()); 
 	    }
 	    
-	    return gameObjects;
-	    
+	    return gameObjects;	    
 	}
 
 }
