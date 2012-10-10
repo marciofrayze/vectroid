@@ -4,23 +4,27 @@ import java.util.ArrayList;
 
 import br.com.insanegames.insanevectroid.gameobjects.GameObject;
 import br.com.insanegames.insanevectroid.util.GameScreen;
-import br.com.insanegames.insanevectroid.util.ScreenSize;
+import android.app.Activity;
 import android.graphics.Canvas;
+import android.util.DisplayMetrics;
 
 /**
  * Esta classe eh responsavel por controlar o jogo em geral. A logica do jogo nao deve estar nela, ela apenas deve delegar aos responsaveis o que fazer.
+ * Esta eh uma classe abstrata contendo apenas o basico geral. Deve ser extendida e adptada para cada jogo.
  * @author Marcio Frayze David
  *
  */
-public class GameController {
+public abstract class GameController {
 		
 	/** Esta lista contem todos os objetos do jogo.	 */
-	private ArrayList<GameObject> gameObjects;
+	protected ArrayList<GameObject> gameObjects;
 	/** O GameController delega ao GameScreen a responsabilidade de desenhar os objetos na tela */
-	private GameScreen gameScreen;
+	protected GameScreen gameScreen;
 	
-	public GameController() {
+	public GameController(Activity activity) {
 		this.gameObjects = new ArrayList<GameObject>();
+		DisplayMetrics metrics = activity.getResources().getDisplayMetrics();
+		this.gameScreen = new GameScreen(metrics.widthPixels, metrics.heightPixels);
 	}
 	
 	/**
@@ -62,24 +66,6 @@ public class GameController {
 	
 	public ArrayList<GameObject> getGameObjects() {
 		return this.gameObjects;
-	}
-
-	public void movePlayerLeft() {	
-		// TODO otimizar este codigo!
-		for (GameObject gameObject : gameObjects) {
-			if (gameObject.type().equals("player")) {
-				gameObject.move(-6f, 0f);
-			}
-		}	
-	}
-	
-	public void movePlayerRight() {		
-		// TODO otimizar este codigo!
-		for (GameObject gameObject : gameObjects) {
-			if (gameObject.type().equals("player")) {
-				gameObject.move(6f, 0f);
-			}
-		}	
 	}
 
 }

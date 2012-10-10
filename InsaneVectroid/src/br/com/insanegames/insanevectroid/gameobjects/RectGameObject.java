@@ -3,7 +3,7 @@ package br.com.insanegames.insanevectroid.gameobjects;
 import br.com.insanegames.insanevectroid.util.Line;
 import br.com.insanegames.insanevectroid.util.Position;
 
-public class RectGameObject extends GameObject {
+public abstract class RectGameObject extends GameObject {
 
 	public float speed;
 	
@@ -15,7 +15,7 @@ public class RectGameObject extends GameObject {
 		this.speed = speed;
 	}
 	
-	// This mehod could be way faster/smarter =)
+	// This method could be way faster/smarter =)
 	public Line[] getLines() {
 		Line[] lines = new Line[4];
 		lines[0] = new Line(position.getX()-width, position.getY()-height, position.getX()-width, position.getY()+height);
@@ -24,13 +24,6 @@ public class RectGameObject extends GameObject {
 		lines[3] = new Line(position.getX()-width, position.getY()+height, position.getX()+width, position.getY()+height);
 
 		return lines;
-	}
-	
-	public void think() {
-		this.position.setY(this.position.getY()+this.speed);
-		if (this.position.getY() > 1000) {
-			this.position.setY(-this.height);
-		}
 	}
 	
 }
