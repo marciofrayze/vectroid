@@ -7,11 +7,9 @@ public class RectSinGameObject extends RectGameObject {
 
 	private float sinAngle;
 	
-	public RectSinGameObject(float x, float y, float width, float height,
-			float speed, int color) {
+	public RectSinGameObject(float x, float y, float width, float height, float speed, int color) {
 		super(x, y, width, height, speed, color);
 		sinAngle=(int) (Math.random() * 360);
-
 	}
 
 	public void think() {
