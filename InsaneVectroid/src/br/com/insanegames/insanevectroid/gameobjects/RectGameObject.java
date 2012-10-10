@@ -15,7 +15,7 @@ public abstract class RectGameObject extends GameObject {
 		this.speed = speed;
 	}
 	
-	// This method could be way faster/smarter =)
+	// This mehod could be way faster/smarter =)
 	public Line[] getLines() {
 		Line[] lines = new Line[4];
 		lines[0] = new Line(position.getX()-width, position.getY()-height, position.getX()-width, position.getY()+height);
