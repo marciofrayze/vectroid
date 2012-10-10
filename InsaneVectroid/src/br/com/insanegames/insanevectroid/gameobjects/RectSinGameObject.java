@@ -1,4 +1,4 @@
-package br.com.insanegames.insanevectroid;
+package br.com.insanegames.insanevectroid.gameobjects;
 
 public class RectSinGameObject extends RectGameObject {
 

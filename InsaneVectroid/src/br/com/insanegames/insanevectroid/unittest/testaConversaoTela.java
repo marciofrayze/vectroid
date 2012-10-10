@@ -7,6 +7,7 @@ import br.com.insanegames.insanevectroid.util.GameScreen;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+//TODO: Mover para uma pasta exclusiva de testes
 public class testaConversaoTela extends TestCase {
 
 	@Test

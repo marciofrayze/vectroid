@@ -1,4 +1,5 @@
-package br.com.insanegames.insanevectroid;
+package br.com.insanegames.insanevectroid.util;
+
 
 public class Line {
 	

@@ -2,8 +2,7 @@ package br.com.insanegames.insanevectroid.util;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import br.com.insanegames.insanevectroid.GameObject;
-import br.com.insanegames.insanevectroid.Line;
+import br.com.insanegames.insanevectroid.gameobjects.GameObject;
 
 /**
  * Representa a tela. Tem a capacidade desenhar GameObjects na tela (convertendo as posicoes corretas, independente da resolucao da tela do celular).

@@ -1,4 +1,7 @@
-package br.com.insanegames.insanevectroid;
+package br.com.insanegames.insanevectroid.gameobjects;
+
+import br.com.insanegames.insanevectroid.util.Line;
+import br.com.insanegames.insanevectroid.util.Position;
 
 public abstract class GameObject {
 	

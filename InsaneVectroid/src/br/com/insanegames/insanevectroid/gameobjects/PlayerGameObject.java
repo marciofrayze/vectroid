@@ -1,4 +1,5 @@
-package br.com.insanegames.insanevectroid;
+package br.com.insanegames.insanevectroid.gameobjects;
+
 
 public class PlayerGameObject extends RectGameObject {
 
@@ -7,7 +8,7 @@ public class PlayerGameObject extends RectGameObject {
 	}
 
 	public void think() {
-		// nao faça nada
+		// nao faÔøΩa nada
 	}
 	
 	public String type() {

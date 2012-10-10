@@ -1,4 +1,4 @@
-package br.com.insanegames.insanevectroid;
+package br.com.insanegames.insanevectroid.controllers;
 
 import android.view.View;
 
@@ -6,7 +6,7 @@ import android.view.View;
  * Responsavel por fazer o looping principal/infinito do jogo, delegando para o GameController a responsabilidade de atualizar os objetos do jogo.
  * @author Marcio Frayze David
  */
-public class AnimationThread extends Thread {
+public class AnimationController extends Thread {
 	
 	private GameController gameController;
 	private View view;

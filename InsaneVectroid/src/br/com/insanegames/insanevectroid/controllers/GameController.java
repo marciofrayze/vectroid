@@ -1,7 +1,8 @@
-package br.com.insanegames.insanevectroid;
+package br.com.insanegames.insanevectroid.controllers;
 
 import java.util.ArrayList;
 
+import br.com.insanegames.insanevectroid.gameobjects.GameObject;
 import br.com.insanegames.insanevectroid.util.GameScreen;
 import br.com.insanegames.insanevectroid.util.ScreenSize;
 import android.graphics.Canvas;

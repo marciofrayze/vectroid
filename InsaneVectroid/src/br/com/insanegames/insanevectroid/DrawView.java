@@ -1,8 +1,8 @@
 package br.com.insanegames.insanevectroid;
 
+import br.com.insanegames.insanevectroid.controllers.GameController;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.view.MotionEvent;
 import android.view.View;
 
 public class DrawView extends View {

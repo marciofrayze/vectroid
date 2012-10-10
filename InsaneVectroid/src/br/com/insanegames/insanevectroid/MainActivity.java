@@ -1,6 +1,12 @@
 package br.com.insanegames.insanevectroid;
 
 import java.util.Random;
+
+import br.com.insanegames.insanevectroid.controllers.AnimationController;
+import br.com.insanegames.insanevectroid.controllers.GameController;
+import br.com.insanegames.insanevectroid.controllers.InputController;
+import br.com.insanegames.insanevectroid.gameobjects.PlayerGameObject;
+import br.com.insanegames.insanevectroid.gameobjects.RectSinGameObject;
 import br.com.insanegames.insanevectroid.util.GameScreen;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -19,7 +25,7 @@ public class MainActivity extends Activity {
 	/** View onde iremos desenhar os objetos do jogo */
 	private DrawView drawView;
 	/** Thread responsavel pelo looping principal do jogo, controle de framerate, etc. */
-	private AnimationThread thread;
+	private AnimationController thread;
 	
 	private InputController inputController;
 	
@@ -64,7 +70,7 @@ public class MainActivity extends Activity {
         drawView.setGameController(gameController);
 
         // Thread responsavel pelo looping principal. Apenas delega ao gameController as responsabilidades.
-        thread = new AnimationThread();        
+        thread = new AnimationController();        
         thread.setGameController(gameController);
         // Por enquanto a thread depende da view pois ela eh quem chama o metodo postInvalidate, que forca a re-renderizacao da view.
         // TODO: Rever essa dependencia. Talvez fosse melhor o controller chamar o postInvalidate da view e nao a thread. Pensar sobre isso!

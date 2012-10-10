@@ -1,4 +1,4 @@
-package br.com.insanegames.insanevectroid;
+package br.com.insanegames.insanevectroid.controllers;
 
 import br.com.insanegames.insanevectroid.util.ScreenSize;
 import android.view.MotionEvent;
