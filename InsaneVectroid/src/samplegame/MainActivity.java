@@ -13,21 +13,19 @@ public class MainActivity extends AbstractMainActivity {
 	@Override
 	protected void gameSetup() {	    
 		this.gameController = new VectroidGameController(this);
-	    PlayerGameObject playerGameObject = new PlayerGameObject(1024/2, 700, 50, 50, 0.3f, Color.BLUE);
-		gameController.addGameObject(playerGameObject);    	
-	    gameController.addGameObject(criaArrayObjetosAleatoriosParaTestes());
-	    
+	    gameController.addGameObject(criaArrayObjetosAleatoriosParaTestes());    
 	    inputController = new VectroidInputController(gameController, gameScreen.getScreenSize());
 	}
 	
 	private GameObject[] criaArrayObjetosAleatoriosParaTestes() {		
 		
 	    // Criando uns objetos quaisquer apenas para testes
-		GameObject[] gameObjects = new GameObject[5];
+		GameObject[] gameObjects = new GameObject[6];		
 	    for (int i=0; i<5; i++) {
 	    	float vel = (float)Math.random();        	
 	    	gameObjects[i] = new RectSinGameObject(GameScreen.randomXPosition(), -GameScreen.randomYPosition(), 50, 50 , vel, GameScreen.randomColor()); 
 	    }
+	    gameObjects[5] = new PlayerGameObject(1024/2, 700, 50, 50, 0.3f, Color.BLUE);
 	    
 	    return gameObjects;	    
 	}
