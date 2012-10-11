@@ -9,6 +9,7 @@ public abstract class GameObject {
 	protected float width;
 	protected float height;
 	protected int color;
+	protected boolean isCollidable;
 
 	public Position getPosition() {
 		return position;
@@ -29,8 +30,9 @@ public abstract class GameObject {
 		this.height = height;
 	}
 	
-	public boolean isCollidingWith(GameObject gameObject) {
-		return false;
+	public boolean isCollidingWith(GameObject anotherGameObject) {
+		return ( Math.abs(this.getPosition().getX() - anotherGameObject.getPosition().getX()) <= this.getWidth() + anotherGameObject.getWidth() ||
+				Math.abs(this.getPosition().getY() - anotherGameObject.getPosition().getY()) <= this.getHeight() + anotherGameObject.getHeight());	
 	}
 	
 	public abstract Line[] getLines();
@@ -50,8 +52,26 @@ public abstract class GameObject {
 	public String type() {
 		return "nobody";
 	}
+
 	public void move(float x, float y) {
 		this.setPosition(new Position(this.getPosition().getX() + x, this.getPosition().getY() + y));		
 	}
+	
+	/**
+	 * Metodo chamado quando dois objetos colidem
+	 * @param anotherGameObject
+	 */
+	public abstract void whenCollidingWith(GameObject anotherGameObject);
+	
+	public void enableCollisionDetection() {
+		this.isCollidable = true;
+	}
+	
+	public void disableCollisionDetection() {
+		this.isCollidable = false;
+	}		
 
+	public boolean isCollidable() {
+		return this.isCollidable; 
+	}
 }

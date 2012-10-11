@@ -13,6 +13,7 @@ public abstract class RectGameObject extends GameObject {
 		this.height = height;
 		this.color = color;
 		this.speed = speed;
+		this.enableCollisionDetection();
 	}
 	
 	// This mehod could be way faster/smarter =)

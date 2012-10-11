@@ -1,5 +1,6 @@
 package samplegame;
 
+import br.com.insanegames.insanevectroid.gameobjects.GameObject;
 import br.com.insanegames.insanevectroid.gameobjects.RectGameObject;
 
 
@@ -25,7 +26,7 @@ public class PlayerGameObject extends RectGameObject {
 	
 	private void resetMovingVars() {
 		isMovingLeft = false;
-		isMovingLeft = false;		
+		isMovingRight = false;		
 	}
 
 	public String type() {
@@ -46,6 +47,11 @@ public class PlayerGameObject extends RectGameObject {
 	 */
 	public void moveRight() {
 		this.isMovingRight = true;		
+	}
+
+	@Override
+	public void whenCollidingWith(GameObject anotherGameObject) {
+		this.move(-100, 0);
 	}
 
 }

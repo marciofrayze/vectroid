@@ -1,6 +1,7 @@
 package samplegame;
 
 import android.util.FloatMath;
+import br.com.insanegames.insanevectroid.gameobjects.GameObject;
 import br.com.insanegames.insanevectroid.gameobjects.RectGameObject;
 
 public class RectSinGameObject extends RectGameObject {
@@ -25,5 +26,10 @@ public class RectSinGameObject extends RectGameObject {
 		if (this.position.getY() > 768+height) {
 			this.position.setY(-this.height);
 		}
+	}
+
+	@Override
+	public void whenCollidingWith(GameObject anotherGameObject) {
+		// TODO
 	}
 }

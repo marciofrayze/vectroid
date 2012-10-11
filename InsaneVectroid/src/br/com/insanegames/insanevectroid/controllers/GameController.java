@@ -41,11 +41,30 @@ public abstract class GameController {
 	 * Toda vez que um ciclo do jogo for executado este metodo deve ser chamado para que os objetos sejam atualizados.
 	 */
 	public void updateWorld() {
-		for (GameObject gameObject : gameObjects) {
-			gameObject.think();
-		}			
+		this.makeObjectsThink();
+		this.checkCollisions();		
 	}
 	
+	private void checkCollisions() {
+		for (GameObject gameObject : gameObjects) {
+			for (GameObject anotherGameObject : gameObjects) {
+				if (isCollidable(gameObject, anotherGameObject)) {
+					gameObject.whenCollidingWith(anotherGameObject);
+				}
+			}
+		}		
+	}
+
+	private boolean isCollidable(GameObject gameObject, GameObject anotherGameObject) {
+		return (gameObject != anotherGameObject && gameObject.isCollidable() && anotherGameObject.isCollidable() && gameObject.isCollidingWith(anotherGameObject));
+	}
+	
+	private void makeObjectsThink() {
+		for (GameObject gameObject : gameObjects) {
+			gameObject.think();
+		}		
+	}
+
 	/**
 	 * Desenha os objetos do jogo em um canvas
 	 * @param canvas
